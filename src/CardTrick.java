@@ -19,6 +19,11 @@ public class CardTrick {
         Scanner userInput = new Scanner(System.in);
         Random randNum = new Random();
         Card[] magicHand = new Card[7];
+        //Creat hardcoded luckyCard object in GitHub
+        //Assign value = 8, suit = Spades
+        Card luckyCard = new Card();
+        luckyCard.setValue(8);
+        luckyCard.setSuit(Card.SUITS[3]);
         //fill random cards by array index
         for (int i=0; i<magicHand.length; i++) {
             //create card object
