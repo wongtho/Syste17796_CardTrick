@@ -36,38 +36,14 @@ public class CardTrick {
             //test
             System.out.println("Your card is:" + magicHand[i].getValue() + " of " + magicHand[i].getSuit());
         }
-        //create search variables
-        int parseNum;
-        String parseSuit = null;
-        //match suit using regex
-        String regex = "[hH]eart(s)?|[dD]iamond(s)?|[sS]pade(s)?|[cC]lub(s)?";
-        //ask user to pick a card number
-        System.out.print("Pick a card 'any card' (1 - 13): ");
-        try {
-            parseNum = userInput.nextInt();
-            if(parseNum < 1 || parseNum > 13) {
-                System.err.println("Only numbers from 1 to 13 are accepted.");
-            }
-        }
-        catch(InputMismatchException e) {
-            throw new NoSuchElementException("Only numbers are accepted.");
-        }
-        //ask user to pick a suit
-        System.out.print("Pick a card 'any card' (Hearts, Diamonds, Spades, Clubs): ");
-        try {
-            parseSuit = userInput.next(regex);
-        }
-        catch(NoSuchElementException e) {
-            System.err.println("No suits matching input.");
-        }
         //win flag
         boolean youWin = false;
         //begin searching, scan each card by array position
         for(int i = 0; i < magicHand.length; i++) {
             //check if value has matched
-            if(parseNum == magicHand[i].getValue()) {
+            if(luckyCard.getValue() == magicHand[i].getValue()) {
                 //check if suit matched
-                if(parseSuit.matches(magicHand[i].getSuit())) {
+                if(luckyCard.getSuit().matches(magicHand[i].getSuit())) {
                     //value and suit matched, set win flag to true
                     youWin = true;
                 }
